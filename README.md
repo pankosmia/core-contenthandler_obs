@@ -1,3 +1,3 @@
-# contenthandler-template
+# core-contenthandler_obs
 
-contenthandler-template
+core-contenthandler_obs

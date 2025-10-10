@@ -1,18 +1,21 @@
 {
-  "id": "contenthandler-template",
+  "id": "core-contenthandler_obs",
   "require": {
     "net": false,
     "debug": true
   },
   "i18n": {
     "title": {
-      "en": "contenthandler-template"
+      "en": "core-contenthandler_obs"
     },
     "summary": {
-      "en": "contenthandler-template"
+      "en": "core-contenthandler_obs"
     },
     "stub_content": {
       "en": "Content goes here"
+    },
+    "new_obs_content": {
+      "en": "New obs "
     }
   }
 }
