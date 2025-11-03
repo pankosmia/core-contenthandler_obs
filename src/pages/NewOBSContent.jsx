@@ -5,6 +5,7 @@ import {
     Button,
     Dialog,
     DialogActions,
+    DialogContent,
     Grid2,
     Stack,
     TextField,
@@ -21,18 +22,6 @@ import {
 } from "pithekos-lib";
 
 export default function NewOBSContent() {
-    const handleClose = () => {
-        const url = window.location.search;
-        const params = new URLSearchParams(url);
-        const returnType = params.get("returntypepage");
-        if (returnType === "dashboard") {
-            window.location.href = "/clients/main";
-        } else {
-            window.location.href = "/clients/content";
-        }
-
-    };
-
 
     const { i18nRef } = useContext(i18nContext);
     const { debugRef } = useContext(debugContext);
@@ -42,6 +31,8 @@ export default function NewOBSContent() {
     const [contentLanguageCode, setContentLanguageCode] = useState("und");
     const [open, setOpen] = useState(true);
     const [postCount, setPostCount] = useState(0);
+    const [errorDialogOpen, setErrorDialogOpen] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         setContentName("");
@@ -49,11 +40,22 @@ export default function NewOBSContent() {
         setContentLanguageCode("und");
     }, [postCount]);
 
+    const handleClose = () => {
+        const url = window.location.search;
+        const params = new URLSearchParams(url);
+        const returnType = params.get("returntypepage");
+        if (returnType === "dashboard") {
+            window.location.href = "/clients/main";
+        } else {
+            window.location.href = "/clients/content";
+        }
+    };
+    
     const handleCloseCreate = async () => {
         setOpen(false);
         setTimeout(() => {
             window.location.href = '/clients/content';
-        }, 500);
+        });
     };
     const handleCreate = async () => {
         const payload = {
@@ -79,10 +81,16 @@ export default function NewOBSContent() {
                 }`,
                 { variant: "error" }
             );
+            setErrorMessage(`${doI18n("pages:content:book_creation_error", i18nRef.current)}: ${response.status
+                }`);
+            setErrorDialogOpen(true);
         }
-        handleClose();
     };
 
+    const handleCloseErrorDialog = () => {
+        setErrorDialogOpen(false);
+        handleClose();
+    };
     return (
         <Box>
             <Box
@@ -200,6 +208,17 @@ export default function NewOBSContent() {
                         onClick={handleCreate}
                     >
                         {doI18n("pages:content:create", i18nRef.current)}
+                    </Button>
+                </DialogActions>
+            </Dialog>
+            {/* Error Dialog*/}
+            <Dialog open={errorDialogOpen} onClose={handleCloseErrorDialog}>
+                <DialogContent>
+                    <Typography color="error">{errorMessage}</Typography>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCloseErrorDialog} variant="contained" color="primary">
+                        {doI18n("pages:content:close", i18nRef.current)}
                     </Button>
                 </DialogActions>
             </Dialog>
