@@ -18,6 +18,10 @@
     },
     "new_obs_content": {
       "en": "New obs "
+    },
+    "name_is_taken": {
+      "en": "The name is already taken",
+      "es": "El nombre ya está en uso"
     }
   }
 }
