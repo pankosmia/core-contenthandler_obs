@@ -11,12 +11,14 @@ import {
     TextField,
     Toolbar,
     Typography,
+    Tooltip
 } from "@mui/material";
 import { enqueueSnackbar } from "notistack";
 import {
     i18nContext,
     debugContext,
     postJson,
+    getAndSetJson,
     doI18n,
     Header,
 } from "pithekos-lib";
@@ -33,6 +35,20 @@ export default function NewOBSContent() {
     const [postCount, setPostCount] = useState(0);
     const [errorDialogOpen, setErrorDialogOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [localRepos, setLocalRepos] = useState([]);
+    const [repoExists, setRepoExists] = useState(false);
+
+    useEffect(
+        () => {
+            if (open){
+                getAndSetJson({
+                    url: "/git/list-local-repos",
+                    setter: setLocalRepos
+                }).then()  
+            }  
+        },
+        [open]
+    );
 
     useEffect(() => {
         setContentName("");
@@ -91,6 +107,10 @@ export default function NewOBSContent() {
         setErrorDialogOpen(false);
         handleClose();
     };
+
+    console.log(repoExists);
+    console.log(localRepos);
+
     return (
         <Box>
             <Box
@@ -157,15 +177,26 @@ export default function NewOBSContent() {
                                 setContentName(event.target.value);
                             }}
                         />
-                        <TextField
-                            id="abbr"
-                            required
-                            label={doI18n("pages:content:abbreviation", i18nRef.current)}
-                            value={contentAbbr}
-                            onChange={(event) => {
-                                setContentAbbr(event.target.value);
-                            }}
-                        />
+                        <Tooltip 
+                            open={repoExists} 
+                            slotProps={{popper: {modifiers: [{name: 'offset', options: {offset: [0, -7]}}]}}}
+                            title={doI18n("pages:core-contenthandler_obs:name_is_taken", i18nRef.current)} placement="top-start"
+                        >
+                            <TextField
+                                id="abbr"
+                                required
+                                label={doI18n("pages:content:abbreviation", i18nRef.current)}
+                                value={contentAbbr}
+                                onChange={(event) => {
+                                    if (localRepos.map(l => l.split("/")[2]).includes(event.target.value)){
+                                        setRepoExists(true);
+                                    } else {
+                                        setRepoExists(false);
+                                    }
+                                    setContentAbbr(event.target.value);
+                                }}
+                            />
+                        </Tooltip>
                         <TextField
                             id="type"
                             required
@@ -177,7 +208,6 @@ export default function NewOBSContent() {
                                 setContentType(event.target.value);
                             }}
                         />
-
                         <TextField
                             id="languageCode"
                             required
@@ -204,6 +234,8 @@ export default function NewOBSContent() {
                                 contentType.trim().length > 0 &&
                                 contentLanguageCode.trim().length > 0
                             )
+                            ||
+                            repoExists
                         }
                         onClick={handleCreate}
                     >
