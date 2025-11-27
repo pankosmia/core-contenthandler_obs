@@ -40,12 +40,12 @@ export default function NewOBSContent() {
 
     useEffect(
         () => {
-            if (open){
+            if (open) {
                 getAndSetJson({
                     url: "/git/list-local-repos",
                     setter: setLocalRepos
-                }).then()  
-            }  
+                }).then()
+            }
         },
         [open]
     );
@@ -66,7 +66,7 @@ export default function NewOBSContent() {
             window.location.href = "/clients/content";
         }
     };
-    
+
     const handleCloseCreate = async () => {
         setOpen(false);
         setTimeout(() => {
@@ -145,8 +145,7 @@ export default function NewOBSContent() {
                     <Toolbar>
                         <Typography variant="h6" component="div">
                             {doI18n(
-                                "pages:core-contenthandler_obs:new_obs_content",
-                                i18nRef.current
+                                "pages:core-contenthandler_obs:create_content_obs", i18nRef.current
                             )}
                         </Typography>
                     </Toolbar>
@@ -172,9 +171,9 @@ export default function NewOBSContent() {
                                 setContentName(event.target.value);
                             }}
                         />
-                        <Tooltip 
-                            open={repoExists} 
-                            slotProps={{popper: {modifiers: [{name: 'offset', options: {offset: [0, -7]}}]}}}
+                        <Tooltip
+                            open={repoExists}
+                            slotProps={{ popper: { modifiers: [{ name: 'offset', options: { offset: [0, -7] } }] } }}
                             title={doI18n("pages:core-contenthandler_obs:name_is_taken", i18nRef.current)} placement="top-start"
                         >
                             <TextField
@@ -183,7 +182,7 @@ export default function NewOBSContent() {
                                 label={doI18n("pages:content:abbreviation", i18nRef.current)}
                                 value={contentAbbr}
                                 onChange={(event) => {
-                                    if (localRepos.map(l => l.split("/")[2]).includes(event.target.value)){
+                                    if (localRepos.map(l => l.split("/")[2]).includes(event.target.value)) {
                                         setRepoExists(true);
                                     } else {
                                         setRepoExists(false);
