@@ -22,6 +22,11 @@
     "name_is_taken": {
       "en": "The name is already taken",
       "es": "El nombre ya está en uso"
+    },
+    "create_content_obs": {
+      "en": "Open Bible Stories ",
+      "fr":"Open Bible Stories",
+      "id":"@Sumber Daya CAT"
     }
   }
 }
