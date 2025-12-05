@@ -6,6 +6,18 @@
     "net": false,
     "debug": true
   },
+  "endpoints": {
+    "textStories": {
+      "create_document": [
+        {
+          "doc": "Create a document for OBS",
+          "label": "pages:content:create_content_obs",
+          "url": "/clients/core-contenthandler_obs#/createDocument/obsContent"
+        }
+      ]
+    }
+  },
+
   "i18n": {
     "title": {
       "en": "core-contenthandler_obs"
@@ -25,8 +37,8 @@
     },
     "create_content_obs": {
       "en": "Open Bible Stories ",
-      "fr":"Open Bible Stories",
-      "id":"@Sumber Daya CAT"
+      "fr": "Open Bible Stories",
+      "id": "@Sumber Daya CAT"
     }
   }
 }

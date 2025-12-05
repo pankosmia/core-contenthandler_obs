@@ -11,7 +11,7 @@ const router = createHashRouter([
         element:<App/>
     },
     {
-        path: "obsContent",
+        path: "/createDocument/obsContent",
         element: <NewOBSContent/>
     },
 ]);
