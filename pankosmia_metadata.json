@@ -29,10 +29,12 @@
       "en": "Content goes here"
     },
     "new_obs_content": {
-      "en": "New obs "
+      "en": "Create Open Bible Stories",
+      "fr": "Créer Open Bible Stories"
     },
     "name_is_taken": {
       "en": "The name is already taken",
+      "fr": "Ce nom est déjà pris",
       "es": "El nombre ya está en uso"
     },
     "create_content_obs": {
