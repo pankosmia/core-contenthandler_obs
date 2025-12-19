@@ -11,7 +11,7 @@
       "create_document": [
         {
           "doc": "Create a document for OBS",
-          "label": "pages:content:create_content_obs",
+          "label": "pages:core-contenthandler_obs:create_content_obs",
           "url": "/clients/core-contenthandler_obs#/createDocument/obsContent"
         }
       ]
