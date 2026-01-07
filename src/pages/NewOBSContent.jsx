@@ -94,6 +94,7 @@ export default function NewOBSContent() {
             );
             handleCloseCreate();
         } else {
+            console.log("error");
             setErrorMessage(`${doI18n("pages:core-contenthandler_obs:book_creation_error", i18nRef.current)}: ${response.status
                 }`);
             setErrorDialogOpen(true);
@@ -104,9 +105,6 @@ export default function NewOBSContent() {
         setErrorDialogOpen(false);
         handleClose();
     };
-
-    console.log(repoExists);
-    console.log(localRepos);
 
     return (
         <Box>
@@ -201,6 +199,7 @@ export default function NewOBSContent() {
                     closeFn={() => handleClose()}
                     closeLabel={doI18n("pages:core-contenthandler_obs:close", i18nRef.current)}
                     actionFn={handleCreate}
+                    closeOnAction={false}
                     actionLabel={doI18n("pages:core-contenthandler_obs:create", i18nRef.current)}
                     isDisabled={
                         !(
