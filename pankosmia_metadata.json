@@ -83,6 +83,11 @@
       "fr": "* Champs obligatoires",
       "id": "* Data yg diperlukan",
       "es": "* Campos requeridos"
+    },
+     "book_creation_error": {
+      "en": "The book could not be created",
+      "fr": "Le livre n'a pas pu être créé",
+      "id": "@Kesalahan terjadi: Buku tidak jadi terbuat"
     }
   }
 }
