@@ -30,16 +30,65 @@
       "en": "Content goes here"
     },
     "new_obs_content": {
-      "en": "New obs "
+      "en": "Create Open Bible Stories",
+      "fr": "Créer Open Bible Stories"
     },
     "name_is_taken": {
       "en": "The name is already taken",
+      "fr": "Ce nom est déjà pris",
       "es": "El nombre ya está en uso"
     },
     "create_content_obs": {
       "en": "Open Bible Stories ",
       "fr": "Open Bible Stories",
       "id": "@Sumber Daya CAT"
+    },
+    "name": {
+      "en": "Document name",
+      "es": "@Nombre",
+      "fr": "Nom du document",
+      "id": "@Nama"
+    },
+    "abbreviation": {
+      "en": "Abbreviation",
+      "es": "Abreviación",
+      "fr": "Abréviation",
+      "id": "Singkatan"
+    },
+    "type": {
+      "en": "Type",
+      "es": "Tipo",
+      "fr": "Type",
+      "id": "Jenis"
+    },
+    "lang_code": {
+      "en": "Language Code ('und' for undetermined)",
+      "es": "Código del Idioma (si no está determinado, use 'und')",
+      "fr": "Code Langue (si non déterminé, utilisez 'und')",
+      "id": "Kode Bahasa ('und' buat yg tak dpt ditentukan)"
+    },
+    "close": {
+      "en": "Close",
+      "es": "Cerrar",
+      "fr": "Fermer",
+      "id": "Tutup"
+    },
+    "create": {
+      "en": "Create",
+      "es": "Crear",
+      "fr": "Créer",
+      "id": "Buat"
+    },
+    "required_field": {
+      "en": "* Required fields",
+      "fr": "* Champs obligatoires",
+      "id": "* Data yg diperlukan",
+      "es": "* Campos requeridos"
+    },
+     "book_creation_error": {
+      "en": "The book could not be created",
+      "fr": "Le livre n'a pas pu être créé",
+      "id": "@Kesalahan terjadi: Buku tidak jadi terbuat"
     }
   }
 }

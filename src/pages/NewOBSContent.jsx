@@ -11,7 +11,8 @@ import {
     TextField,
     Toolbar,
     Typography,
-    Tooltip
+    Tooltip,
+    DialogContentText
 } from "@mui/material";
 import { enqueueSnackbar } from "notistack";
 import {
@@ -22,6 +23,7 @@ import {
     doI18n,
     Header,
 } from "pithekos-lib";
+import { PanDialog, PanDialogActions } from "pankosmia-rcl";
 
 export default function NewOBSContent() {
 
@@ -87,12 +89,13 @@ export default function NewOBSContent() {
         if (response.ok) {
             setPostCount(postCount + 1);
             enqueueSnackbar(
-                doI18n("pages:content:content_created", i18nRef.current),
+                doI18n("pages:core-contenthandler_obs:content_created", i18nRef.current),
                 { variant: "success" }
             );
             handleCloseCreate();
         } else {
-            setErrorMessage(`${doI18n("pages:content:book_creation_error", i18nRef.current)}: ${response.status
+            console.log("error");
+            setErrorMessage(`${doI18n("pages:core-contenthandler_obs:book_creation_error", i18nRef.current)}: ${response.status
                 }`);
             setErrorDialogOpen(true);
         }
@@ -102,9 +105,6 @@ export default function NewOBSContent() {
         setErrorDialogOpen(false);
         handleClose();
     };
-
-    console.log(repoExists);
-    console.log(localRepos);
 
     return (
         <Box>
@@ -126,35 +126,16 @@ export default function NewOBSContent() {
                 currentId="content"
                 requireNet={false}
             />
-            <Dialog
-                fullWidth={true}
-                open={open}
-                onClose={handleClose}
-                sx={{
-                    backdropFilter: "blur(3px)",
-                }}
+
+            <PanDialog
+                titleLabel={doI18n("pages:core-contenthandler_obs:create_content_obs", i18nRef.current)}
+                isOpen={open}
+                closeFn={() => handleClose()}
             >
-                <AppBar
-                    color="secondary"
-                    sx={{
-                        position: "relative",
-                        borderTopLeftRadius: 4,
-                        borderTopRightRadius: 4,
-                    }}
-                >
-                    <Toolbar>
-                        <Typography variant="h6" component="div">
-                            {doI18n(
-                                "pages:core-contenthandler_obs:create_content_obs", i18nRef.current
-                            )}
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-                <Typography variant="subtitle2" sx={{ ml: 1, p: 1 }}>
-                    {" "}
-                    {doI18n(`pages:content:required_field`, i18nRef.current)}
-                </Typography>
-                <Stack spacing={2} sx={{ m: 2 }}>
+                <DialogContentText variant="subtitle2" sx={{ ml: 1, p: 1 }}>
+                    {doI18n(`pages:core-contenthandler_obs:required_field`, i18nRef.current)}
+                </DialogContentText>
+                <DialogContent spacing={2}>
                     <Grid2
                         container
                         spacing={2}
@@ -165,7 +146,7 @@ export default function NewOBSContent() {
                         <TextField
                             id="name"
                             required
-                            label={doI18n("pages:content:name", i18nRef.current)}
+                            label={doI18n("pages:core-contenthandler_obs:name", i18nRef.current)}
                             value={contentName}
                             onChange={(event) => {
                                 setContentName(event.target.value);
@@ -179,7 +160,7 @@ export default function NewOBSContent() {
                             <TextField
                                 id="abbr"
                                 required
-                                label={doI18n("pages:content:abbreviation", i18nRef.current)}
+                                label={doI18n("pages:core-contenthandler_obs:abbreviation", i18nRef.current)}
                                 value={contentAbbr}
                                 onChange={(event) => {
                                     if (localRepos.map(l => l.split("/")[2]).includes(event.target.value)) {
@@ -196,7 +177,7 @@ export default function NewOBSContent() {
                             required
                             disabled={true}
                             sx={{ display: "none" }}
-                            label={doI18n("pages:content:type", i18nRef.current)}
+                            label={doI18n("pages:core-contenthandler_obs:type", i18nRef.current)}
                             value={contentType}
                             onChange={(event) => {
                                 setContentType(event.target.value);
@@ -205,46 +186,42 @@ export default function NewOBSContent() {
                         <TextField
                             id="languageCode"
                             required
-                            label={doI18n("pages:content:lang_code", i18nRef.current)}
+                            label={doI18n("pages:core-contenthandler_obs:lang_code", i18nRef.current)}
                             value={contentLanguageCode}
                             onChange={(event) => {
                                 setContentLanguageCode(event.target.value);
                             }}
                         />
+                        
                     </Grid2>
-                </Stack>
-                <DialogActions>
-                    <Button onClick={handleClose} color="primary">
-                        {doI18n("pages:content:close", i18nRef.current)}
-                    </Button>
-                    <Button
-                        autoFocus
-                        variant="contained"
-                        color="primary"
-                        disabled={
-                            !(
-                                contentName.trim().length > 0 &&
-                                contentAbbr.trim().length > 0 &&
-                                contentType.trim().length > 0 &&
-                                contentLanguageCode.trim().length > 0
-                            )
-                            ||
-                            repoExists
-                        }
-                        onClick={handleCreate}
-                    >
-                        {doI18n("pages:content:create", i18nRef.current)}
-                    </Button>
-                </DialogActions>
-            </Dialog>
+                </DialogContent>
+                <PanDialogActions
+                    closeFn={() => handleClose()}
+                    closeLabel={doI18n("pages:core-contenthandler_obs:close", i18nRef.current)}
+                    actionFn={handleCreate}
+                    closeOnAction={false}
+                    actionLabel={doI18n("pages:core-contenthandler_obs:create", i18nRef.current)}
+                    isDisabled={
+                        !(
+                            contentName.trim().length > 0 &&
+                            contentAbbr.trim().length > 0 &&
+                            contentType.trim().length > 0 &&
+                            contentLanguageCode.trim().length > 0
+                        )
+                        ||
+                        repoExists
+                    }
+                />
+            </PanDialog>
             {/* Error Dialog*/}
+            
             <Dialog open={errorDialogOpen} onClose={handleCloseErrorDialog}>
                 <DialogContent>
                     <Typography color="error">{errorMessage}</Typography>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseErrorDialog} variant="contained" color="primary">
-                        {doI18n("pages:content:close", i18nRef.current)}
+                        {doI18n("pages:core-contenthandler_obs:close", i18nRef.current)}
                     </Button>
                 </DialogActions>
             </Dialog>
