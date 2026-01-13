@@ -2,6 +2,7 @@
   "id": "core-contenthandler_obs",
   "exclude_from_menu": true,
   "exclude_from_dashboard": true,
+  "minServerVersion": "0.12.14",
   "require": {
     "net": false,
     "debug": true
@@ -11,8 +12,8 @@
       "create_document": [
         {
           "doc": "Create a document for OBS",
-          "label": "pages:content:create_content_obs",
-          "url": "/clients/core-contenthandler_obs#/createDocument/obsContent"
+          "label": "pages:core-contenthandler_obs:create_content_obs",
+          "url": "/createDocument/obsContent"
         }
       ]
     }
