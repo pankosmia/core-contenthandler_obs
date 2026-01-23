@@ -12,7 +12,8 @@ import {
     Toolbar,
     Typography,
     Tooltip,
-    DialogContentText
+    DialogContentText,
+    useTheme
 } from "@mui/material";
 import { enqueueSnackbar } from "notistack";
 import {
@@ -39,6 +40,7 @@ export default function NewOBSContent() {
     const [errorMessage, setErrorMessage] = useState("");
     const [localRepos, setLocalRepos] = useState([]);
     const [repoExists, setRepoExists] = useState(false);
+    const theme = useTheme();
 
     useEffect(
         () => {
@@ -131,6 +133,7 @@ export default function NewOBSContent() {
                 titleLabel={doI18n("pages:core-contenthandler_obs:create_content_obs", i18nRef.current)}
                 isOpen={open}
                 closeFn={() => handleClose()}
+                theme={theme}
             >
                 <DialogContentText variant="subtitle2" sx={{ ml: 1, p: 1 }}>
                     {doI18n(`pages:core-contenthandler_obs:required_field`, i18nRef.current)}
