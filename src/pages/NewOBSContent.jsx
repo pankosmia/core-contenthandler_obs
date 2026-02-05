@@ -79,7 +79,7 @@ export default function NewOBSContent() {
             content_name: contentName,
             content_abbr: contentAbbr,
             content_language_code: currentLanguage.language_code,
-            content_language_name: currentLanguage.language_name,
+            //content_language_name: currentLanguage.language_name,
         };
         const response = await postJson(
             "/git/new-obs-resource",
