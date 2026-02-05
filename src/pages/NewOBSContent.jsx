@@ -1,30 +1,25 @@
 import { useState, useContext, useEffect } from "react";
 import {
-    AppBar,
     Box,
-    Button,
-    Dialog,
-    DialogActions,
     DialogContent,
     Grid2,
-    Stack,
     TextField,
-    Toolbar,
-    Typography,
     Tooltip,
     DialogContentText,
-    useTheme
 } from "@mui/material";
 import { enqueueSnackbar } from "notistack";
 import {
-    i18nContext,
-    debugContext,
     postJson,
     getAndSetJson,
     doI18n,
-    Header,
 } from "pithekos-lib";
-import { PanDialog, PanDialogActions } from "pankosmia-rcl";
+import {
+    i18nContext,
+    debugContext,
+    Header,
+} from "pankosmia-rcl";
+import { PanDialog, PanDialogActions, PanLanguagePicker } from "pankosmia-rcl";
+import ErrorDialog from "./ErrorDialog";
 
 export default function NewOBSContent() {
 
@@ -33,14 +28,17 @@ export default function NewOBSContent() {
     const [contentName, setContentName] = useState("");
     const [contentAbbr, setContentAbbr] = useState("");
     const [contentType, setContentType] = useState("textStories");
-    const [contentLanguageCode, setContentLanguageCode] = useState("und");
+    const [currentLanguage, setCurrentLanguage] = useState({ language_code: "", language_name: "" });
     const [open, setOpen] = useState(true);
     const [postCount, setPostCount] = useState(0);
     const [errorDialogOpen, setErrorDialogOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [localRepos, setLocalRepos] = useState([]);
     const [repoExists, setRepoExists] = useState(false);
-    const theme = useTheme();
+    const [languageIsValid, setLanguageIsValid] = useState(true);
+    const [errorAbbreviation, setErrorAbbreviation] = useState(false);
+
+    const regexAbbreviation = /^[A-Za-z0-9][A-Za-z0-9_]{0,6}[A-Za-z0-9]$/
 
     useEffect(
         () => {
@@ -57,7 +55,6 @@ export default function NewOBSContent() {
     useEffect(() => {
         setContentName("");
         setContentAbbr("");
-        setContentLanguageCode("und");
     }, [postCount]);
 
     const handleClose = () => {
@@ -81,7 +78,8 @@ export default function NewOBSContent() {
         const payload = {
             content_name: contentName,
             content_abbr: contentAbbr,
-            content_language_code: contentLanguageCode,
+            content_language_code: currentLanguage.language_code,
+            content_language_name: currentLanguage.language_name,
         };
         const response = await postJson(
             "/git/new-obs-resource",
@@ -101,11 +99,6 @@ export default function NewOBSContent() {
                 }`);
             setErrorDialogOpen(true);
         }
-    };
-
-    const handleCloseErrorDialog = () => {
-        setErrorDialogOpen(false);
-        handleClose();
     };
 
     return (
@@ -133,7 +126,6 @@ export default function NewOBSContent() {
                 titleLabel={doI18n("pages:core-contenthandler_obs:create_content_obs", i18nRef.current)}
                 isOpen={open}
                 closeFn={() => handleClose()}
-                theme={theme}
             >
                 <DialogContentText variant="subtitle2" sx={{ ml: 1, p: 1 }}>
                     {doI18n(`pages:core-contenthandler_obs:required_field`, i18nRef.current)}
@@ -162,16 +154,17 @@ export default function NewOBSContent() {
                         >
                             <TextField
                                 id="abbr"
+                                error={errorAbbreviation}
+                                helperText={`${doI18n("pages:core-contenthandler_bcv:helper_abbreviation", i18nRef.current)}`}
                                 required
                                 label={doI18n("pages:core-contenthandler_obs:abbreviation", i18nRef.current)}
                                 value={contentAbbr}
                                 onChange={(event) => {
-                                    if (localRepos.map(l => l.split("/")[2]).includes(event.target.value)) {
-                                        setRepoExists(true);
-                                    } else {
-                                        setRepoExists(false);
-                                    }
-                                    setContentAbbr(event.target.value);
+                                    const value = event.target.value
+                                    setRepoExists(localRepos.map(l => l.split("/")[2]).includes(value));
+                                    setContentAbbr(value);
+                                    setErrorAbbreviation(value.length > 0 && !regexAbbreviation.test(value));
+
                                 }}
                             />
                         </Tooltip>
@@ -186,16 +179,12 @@ export default function NewOBSContent() {
                                 setContentType(event.target.value);
                             }}
                         />
-                        <TextField
-                            id="languageCode"
-                            required
-                            label={doI18n("pages:core-contenthandler_obs:lang_code", i18nRef.current)}
-                            value={contentLanguageCode}
-                            onChange={(event) => {
-                                setContentLanguageCode(event.target.value);
-                            }}
+                        <PanLanguagePicker
+                            currentLanguage={currentLanguage}
+                            setCurrentLanguage={setCurrentLanguage}
+                            setIsValid={setLanguageIsValid}
                         />
-                        
+
                     </Grid2>
                 </DialogContent>
                 <PanDialogActions
@@ -209,7 +198,10 @@ export default function NewOBSContent() {
                             contentName.trim().length > 0 &&
                             contentAbbr.trim().length > 0 &&
                             contentType.trim().length > 0 &&
-                            contentLanguageCode.trim().length > 0
+                            (errorAbbreviation === false) &&
+                            currentLanguage?.language_code?.trim().length > 0 &&
+                            currentLanguage?.language_name?.trim().length > 0 &&
+                            (languageIsValid === true)
                         )
                         ||
                         repoExists
@@ -217,17 +209,7 @@ export default function NewOBSContent() {
                 />
             </PanDialog>
             {/* Error Dialog*/}
-            
-            <Dialog open={errorDialogOpen} onClose={handleCloseErrorDialog}>
-                <DialogContent>
-                    <Typography color="error">{errorMessage}</Typography>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleCloseErrorDialog} variant="contained" color="primary">
-                        {doI18n("pages:core-contenthandler_obs:close", i18nRef.current)}
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            <ErrorDialog setErrorDialogOpen={setErrorDialogOpen} errorDialogOpen={errorDialogOpen} errorMessage={errorMessage} />
         </Box>
     );
 }
