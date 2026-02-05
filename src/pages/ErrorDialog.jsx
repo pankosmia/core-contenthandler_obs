@@ -19,7 +19,7 @@ export default function ErrorDialog({ setErrorDialogOpen, handleClose, errorDial
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleCloseErrorDialog} variant="contained" color="primary">
-                    {doI18n("pages:core-contenthandler_bcv:close", i18nRef.current)}
+                    {doI18n("pages:core-contenthandler_obs:close", i18nRef.current)}
                 </Button>
             </DialogActions>
         </Dialog>

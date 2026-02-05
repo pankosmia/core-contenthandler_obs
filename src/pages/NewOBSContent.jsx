@@ -155,7 +155,7 @@ export default function NewOBSContent() {
                             <TextField
                                 id="abbr"
                                 error={errorAbbreviation}
-                                helperText={`${doI18n("pages:core-contenthandler_bcv:helper_abbreviation", i18nRef.current)}`}
+                                helperText={`${doI18n("pages:core-contenthandler_obs:helper_abbreviation", i18nRef.current)}`}
                                 required
                                 label={doI18n("pages:core-contenthandler_obs:abbreviation", i18nRef.current)}
                                 value={contentAbbr}
