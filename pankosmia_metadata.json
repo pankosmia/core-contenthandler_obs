@@ -45,7 +45,7 @@
     },
     "name": {
       "en": "Document name",
-      "es": "@Nombre",
+      "es": "Nombre del documento",
       "fr": "Nom du document",
       "id": "@Nama"
     },
