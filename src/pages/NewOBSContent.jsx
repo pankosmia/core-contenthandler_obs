@@ -37,7 +37,9 @@ export default function NewOBSContent() {
     const [repoExists, setRepoExists] = useState(false);
     const [languageIsValid, setLanguageIsValid] = useState(true);
     const [errorAbbreviation, setErrorAbbreviation] = useState(false);
-
+    const url = window.location.search;
+    const params = new URLSearchParams(url);
+    const returnType = params.get("returntypepage");
     const regexAbbreviation = /^[A-Za-z0-9][A-Za-z0-9_]{0,6}[A-Za-z0-9]$/
 
     useEffect(
@@ -58,9 +60,6 @@ export default function NewOBSContent() {
     }, [postCount]);
 
     const handleClose = () => {
-        const url = window.location.search;
-        const params = new URLSearchParams(url);
-        const returnType = params.get("returntypepage");
         setOpen(false);
         if (returnType === "dashboard") {
             setTimeout(() => {
@@ -116,7 +115,7 @@ export default function NewOBSContent() {
                 }}
             />
             <Header
-                titleKey="pages:content:title"
+                titleKey={returnType === "dashboard" ? "pages:core-dashboard:title" : "pages:content:title"}
                 currentId="content"
                 requireNet={false}
             />
