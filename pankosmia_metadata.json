@@ -91,8 +91,8 @@
       "id": "@Kesalahan terjadi: Buku tidak jadi terbuat"
     },
     "helper_abbreviation":{
-      "en":"Unique short label to identify your document (2-8 characters, no \" \", no \"_\" at the end)",
-      "fr":"Combinaison unique de caractères pour identifier un document (2-8 caractères, pas de \" \", pas de \"_\" à la fin)"
+    "en":"Unique short label to identify your document (2-8 characters, no \" \", no \"_\"at beginning at the end)",
+    "fr":"Combinaison unique de caractères pour identifier un document (2-8 caractères, pas de \" \", pas de \"_\" à la fin)"
     }
   }
 }
