@@ -61,19 +61,18 @@ export default function NewOBSContent() {
         const url = window.location.search;
         const params = new URLSearchParams(url);
         const returnType = params.get("returntypepage");
+        setOpen(false);
         if (returnType === "dashboard") {
-            window.location.href = "/clients/main";
+            setTimeout(() => {
+                window.location.href = '/clients/main';
+            });
         } else {
-            window.location.href = "/clients/content";
+            setTimeout(() => {
+                window.location.href = '/clients/content';
+            });
         }
     };
 
-    const handleCloseCreate = async () => {
-        setOpen(false);
-        setTimeout(() => {
-            window.location.href = '/clients/content';
-        });
-    };
     const handleCreate = async () => {
         const payload = {
             content_name: contentName,
@@ -92,7 +91,7 @@ export default function NewOBSContent() {
                 doI18n("pages:core-contenthandler_obs:content_created", i18nRef.current),
                 { variant: "success" }
             );
-            handleCloseCreate();
+            handleClose();
         } else {
             console.log("error");
             setErrorMessage(`${doI18n("pages:core-contenthandler_obs:book_creation_error", i18nRef.current)}: ${response.status
