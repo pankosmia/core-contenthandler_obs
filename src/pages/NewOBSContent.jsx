@@ -37,7 +37,9 @@ export default function NewOBSContent() {
     const [repoExists, setRepoExists] = useState(false);
     const [languageIsValid, setLanguageIsValid] = useState(true);
     const [errorAbbreviation, setErrorAbbreviation] = useState(false);
-
+    const url = window.location.search;
+    const params = new URLSearchParams(url);
+    const returnType = params.get("returntypepage");
     const regexAbbreviation = /^[A-Za-z0-9][A-Za-z0-9_]{0,6}[A-Za-z0-9]$/
 
     useEffect(
@@ -58,22 +60,18 @@ export default function NewOBSContent() {
     }, [postCount]);
 
     const handleClose = () => {
-        const url = window.location.search;
-        const params = new URLSearchParams(url);
-        const returnType = params.get("returntypepage");
+        setOpen(false);
         if (returnType === "dashboard") {
-            window.location.href = "/clients/main";
+            setTimeout(() => {
+                window.location.href = '/clients/main';
+            });
         } else {
-            window.location.href = "/clients/content";
+            setTimeout(() => {
+                window.location.href = '/clients/content';
+            });
         }
     };
 
-    const handleCloseCreate = async () => {
-        setOpen(false);
-        setTimeout(() => {
-            window.location.href = '/clients/content';
-        });
-    };
     const handleCreate = async () => {
         const payload = {
             content_name: contentName,
@@ -92,7 +90,7 @@ export default function NewOBSContent() {
                 doI18n("pages:core-contenthandler_obs:content_created", i18nRef.current),
                 { variant: "success" }
             );
-            handleCloseCreate();
+            handleClose();
         } else {
             console.log("error");
             setErrorMessage(`${doI18n("pages:core-contenthandler_obs:book_creation_error", i18nRef.current)}: ${response.status
@@ -117,7 +115,7 @@ export default function NewOBSContent() {
                 }}
             />
             <Header
-                titleKey="pages:content:title"
+                titleKey={returnType === "dashboard" ? "pages:core-dashboard:title" : "pages:content:title"}
                 currentId="content"
                 requireNet={false}
             />
