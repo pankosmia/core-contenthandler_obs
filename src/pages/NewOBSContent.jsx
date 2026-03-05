@@ -37,9 +37,10 @@ export default function NewOBSContent() {
     const [repoExists, setRepoExists] = useState(false);
     const [languageIsValid, setLanguageIsValid] = useState(true);
     const [errorAbbreviation, setErrorAbbreviation] = useState(false);
-    const url = window.location.search;
-    const params = new URLSearchParams(url);
-    const returnType = params.get("returntypepage");
+    const hash = window.location.hash;
+    const query = hash.includes("?") ? hash.split("?") : "";
+    const typePageQuery = new URLSearchParams(query[1]);
+    const returnType = typePageQuery.get("returnTypePage");
     const regexAbbreviation = /^[A-Za-z0-9][A-Za-z0-9_]{0,6}[A-Za-z0-9]$/
 
     useEffect(
