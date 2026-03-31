@@ -100,6 +100,10 @@
     "helper_abbreviation":{
     "en":"Unique short label to identify your document (2-8 characters, no \" \", no \"_\"at beginning at the end)",
     "fr":"Combinaison unique de caractères pour identifier un document (2-8 caractères, pas de \" \", pas de \"_\" à la fin)"
+    },
+    "error_data": {
+    "en": "Error fetching data",
+    "fr": "Erreur lors de la récupération des données"
     }
   }
 }
