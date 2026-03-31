@@ -1,4 +1,4 @@
-import { Box, DialogContent, DialogContentText, Typography } from '@mui/material';
+import { Box, DialogContent, DialogContentText } from '@mui/material';
 import { doI18n, getJson } from 'pithekos-lib';
 import { PanDialog, PanDialogActions, i18nContext, debugContext, Header } from "pankosmia-rcl";
 
@@ -8,20 +8,20 @@ export default function AboutRepo() {
     const { i18nRef } = useContext(i18nContext);
     const [open, setOpen] = useState(true);
     const hash = window.location.hash;
-    const query = hash.includes('?') ? hash.split('?')[1] : '';
-    const repoPathQuery = new URLSearchParams(query);
+    const query = hash.includes('?') ? hash.split('?') : '';
+    const repoPathQuery = new URLSearchParams(query[1]);
+     const typePageQuery = new URLSearchParams(query[2]);
+    const returnType = typePageQuery.get("returnTypePage");
     const path = repoPathQuery.get('repoPath');
     const [repoData, setRepodata] = useState({});
     const [repoInfo, setRepoInfo] = useState();
-    console.log("repoInfo", repoInfo);
-    console.log('repoData', repoData)
     const getProjectSummaries = async () => {
         const summariesResponse = await getJson(`/burrito/metadata/summary/${path}`, debugContext.current);
         if (summariesResponse.ok) {
             const data = await summariesResponse.json;
             setRepodata({ ...data, path });
         } else {
-            console.error(`${doI18n("pages:core-contenthandler_text_translation:error_data", i18nRef.current)}`);
+            console.error(`${doI18n("pages:core-contenthandler_obs:error_data", i18nRef.current)}`);
         }
     };
 
@@ -31,11 +31,18 @@ export default function AboutRepo() {
         },
         []
     );
-    const handleClose = async () => {
+   
+    const handleClose = () => {
         setOpen(false);
-        setTimeout(() => {
-            window.location.href = '/clients/content';
-        }, 500);
+        if (returnType === "dashboard") {
+            setTimeout(() => {
+                window.location.href = '/clients/main';
+            });
+        } else {
+            setTimeout(() => {
+                window.location.href = '/clients/content';
+            });
+        }
     };
 
     useEffect(() => {
@@ -45,14 +52,13 @@ export default function AboutRepo() {
                 nBooks: repoData.book_codes?.length ?? 0,
                 source: repoData.path?.startsWith("_local_")
                     ? repoData.path?.startsWith("_local_/_sideloaded_")
-                        ? doI18n("pages:content:local_resource", i18nRef.current)
-                        : doI18n("pages:content:local_project", i18nRef.current)
-                    : `${repoData.path?.split("/")[1]} (${repoData.path?.split("/")[0]})`,
+                        ? "pages:content:local_resource"
+                        : "pages:content:local_project"
+                    : null,
             };
             setRepoInfo(info);
         }
-
-    }, [repoData]);
+    }, [repoData,i18nRef]);
 
     return (
         <Box>
@@ -71,12 +77,12 @@ export default function AboutRepo() {
                 }}
             />
             <Header
-                titleKey="pages:core-contenthandler_text_translation:title"
-                currentId="core-contenthandler_text_translation"
+                titleKey={returnType === "dashboard" ? "pages:core-dashboard:title" : "pages:content:title"}
+                currentId="core-contenthandler_obs"
                 requireNet={false}
             />
             <PanDialog
-                titleLabel={`${doI18n('pages:content:about_document', i18nRef.current)} ${repoInfo ? `${repoInfo.source} - ${repoInfo.name}` : repoData.name}`}
+                titleLabel={`${doI18n('pages:content:about_document', i18nRef.current)} ${repoInfo ? `${repoInfo.source ? doI18n(repoInfo.source,i18nRef.current) : `${repoInfo.path?.split("/")[1]} (${repoInfo.path?.split("/")[0]})`}  - ${repoInfo.name}` : repoData.name}`}
                 isOpen={open}
                 closeFn={() => handleClose()}
             >
