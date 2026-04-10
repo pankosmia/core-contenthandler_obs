@@ -1,0 +1,28 @@
+name: Enforce Branch Promotion Flow
+
+on:
+  pull_request:
+    branches:
+      - qa
+      - main
+
+jobs:
+  validate-branch-flow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate source branch
+        run: |
+          BASE="${{ github.base_ref }}"
+          HEAD="${{ github.head_ref }}"
+
+          if [ "$BASE" = "qa" ] && [ "$HEAD" != "dev" ]; then
+            echo "Only PRs from dev can be merged into qa."
+            exit 1
+          fi
+
+          if [ "$BASE" = "main" ] && [ "$HEAD" != "qa" ]; then
+            echo "Only PRs from qa can be merged into main."
+            exit 1
+          fi
+
+          echo "Branch flow is valid."
