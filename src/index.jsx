@@ -9,7 +9,6 @@ import { MaterialDesignContent, SnackbarProvider } from "notistack";
 import { createTheme, styled } from "@mui/material";
 import { getAndSetJson } from "pithekos-lib";
 import { useEffect, useState } from "react";
-import AboutRepo from "./pages/AboutRepo";
 
 const router = createHashRouter([
   {
@@ -19,10 +18,6 @@ const router = createHashRouter([
   {
     path: "/createDocument/obsContent",
     element: <NewOBSContent />,
-  },
-  {
-    path: "/aboutRepo",
-    element: <AboutRepo />,
   },
 ]);
 function AppLayout() {
