@@ -15,17 +15,9 @@
           "label": "pages:core-contenthandler_obs:create_content_obs",
           "url": "/createDocument/obsContent"
         }
-      ],
-      "about_repo": [
-        {
-          "doc": "About repo translationNotes document",
-          "label": "pages:content:about_repo",
-          "url": "/aboutRepo?repoPath=%%REPO_PATH%%"
-        }
       ]
     }
   },
-
   "i18n": {
     "title": {
       "en": "core-contenthandler_obs"
