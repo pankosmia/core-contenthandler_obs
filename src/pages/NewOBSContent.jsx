@@ -130,13 +130,16 @@ export default function NewOBSContent() {
         isOpen={open}
         closeFn={() => handleClose()}
       >
-        <DialogContentText variant="subtitle2" sx={{ ml: 1, p: 1 }}>
-          {doI18n(
-            `pages:core-contenthandler_obs:required_field`,
-            i18nRef.current,
-          )}
-        </DialogContentText>
-        <DialogContent spacing={2}>
+        <DialogContent>
+          <DialogContentText
+            variant="subtitle2"
+            sx={{ padding: "0px 0px 16px" }}
+          >
+            {doI18n(
+              `pages:core-contenthandler_obs:required_field`,
+              i18nRef.current,
+            )}
+          </DialogContentText>
           <Grid2
             container
             spacing={2}
