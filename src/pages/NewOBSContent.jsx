@@ -40,7 +40,7 @@ export default function NewOBSContent() {
   useEffect(() => {
     if (open) {
       getAndSetJson({
-        url: "/git/list-local-repos",
+        url: "/api/git/list-local-repos",
         setter: setLocalRepos,
       }).then();
     }
@@ -72,7 +72,7 @@ export default function NewOBSContent() {
       //content_language_name: currentLanguage.language_name,
     };
     const response = await postJson(
-      "/git/new-obs-resource",
+      "/api/git/new-obs-resource",
       JSON.stringify(payload),
       debugRef.current,
     );
@@ -108,7 +108,7 @@ export default function NewOBSContent() {
           backgroundPosition: "center",
           zIndex: -1,
           backgroundImage:
-            'url("/app-resources/pages/content/background_blur.png")',
+            'url("/api/app-resources/pages/content/background_blur.png")',
           backgroundRepeat: "no-repeat",
         }}
       />
