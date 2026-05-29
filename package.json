@@ -1,6 +1,6 @@
 {
   "name": "core-contenthandler_obs",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "private": true,
   "homepage": "/clients/core-contenthandler_obs",
   "dependencies": {

@@ -1,9 +1,7 @@
 import { useContext, useState, useCallback, useEffect } from "react";
-import { Chip, Grid2 } from "@mui/material";
+import { Grid2 } from "@mui/material";
 import { doI18n } from "pithekos-lib";
 import { i18nContext } from "pankosmia-rcl";
-
-import { useNavigate } from "react-router-dom";
 
 function App() {
   const [maxWindowHeight, setMaxWindowHeight] = useState(
@@ -13,7 +11,6 @@ function App() {
     setMaxWindowHeight(window.innerHeight - 64);
   }, []);
   const { i18nRef } = useContext(i18nContext);
-  const navigate = useNavigate();
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
@@ -32,12 +29,6 @@ function App() {
           )}
         </h1>
       </Grid2>
-      <Chip
-        label="bouton create"
-        color="secondary"
-        variant="outlined"
-        onClick={() => navigate("obsContent")}
-      />
     </Grid2>
   );
 }
