@@ -9,6 +9,7 @@ import { MaterialDesignContent, SnackbarProvider } from "notistack";
 import { createTheme, styled } from "@mui/material";
 import { getAndSetJson } from "pithekos-lib";
 import { useEffect, useState } from "react";
+import { FfmpegTestPage } from "./pages/ffmpegTest/FfmpegTestPage";
 
 const router = createHashRouter([
   {
@@ -19,6 +20,7 @@ const router = createHashRouter([
     path: "/createDocument/obsContent",
     element: <NewOBSContent />,
   },
+  { path: "ffmpegTest", element: <FfmpegTestPage /> },
 ]);
 function AppLayout() {
   const [themeSpec, setThemeSpec] = useState({

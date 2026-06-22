@@ -14,6 +14,12 @@
           "doc": "Create a document for OBS",
           "label": "pages:core-contenthandler_obs:create_content_obs",
           "url": "/createDocument/obsContent"
+        },
+        {
+          "doc": "Create document for OBS",
+          "placeHolders": {},
+          "label": "pages:core-contenthandler_obs:Test_Ffmpeg_Installer",
+          "url": "/ffmpegTest"
         }
       ]
     }
@@ -96,6 +102,9 @@
     "error_data": {
       "en": "Error fetching data",
       "fr": "Erreur lors de la récupération des données"
+    },
+    "Test_Ffmpeg_Installer": {
+      "en": "test ffmpeg installer"
     }
   }
 }
