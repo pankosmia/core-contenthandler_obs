@@ -8,7 +8,8 @@ import {
   DialogContentText,
 } from "@mui/material";
 import { enqueueSnackbar } from "notistack";
-import { postJson, getAndSetJson, doI18n } from "pithekos-lib";
+import { postJson, getAndSetJson } from "pankosmia-lib/http";
+import { doI18n } from "pankosmia-lib/i18n";
 import { i18nContext, debugContext, Header } from "pankosmia-rcl";
 import { PanDialog, PanDialogActions, PanLanguagePicker } from "pankosmia-rcl";
 import ErrorDialog from "./ErrorDialog";

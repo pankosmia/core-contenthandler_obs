@@ -7,7 +7,7 @@ import App from "./App";
 import { ThemeProvider } from "@emotion/react";
 import { MaterialDesignContent, SnackbarProvider } from "notistack";
 import { createTheme, styled } from "@mui/material";
-import { getAndSetJson } from "pithekos-lib";
+import { getAndSetJson } from "pankosmia-lib/http";
 import { useEffect, useState } from "react";
 
 const router = createHashRouter([

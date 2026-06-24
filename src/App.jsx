@@ -1,6 +1,6 @@
 import { useContext, useState, useCallback, useEffect } from "react";
 import { Grid2 } from "@mui/material";
-import { doI18n } from "pithekos-lib";
+import { doI18n } from "pankosmia-lib/i18n";
 import { i18nContext } from "pankosmia-rcl";
 
 function App() {
