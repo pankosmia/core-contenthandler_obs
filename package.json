@@ -9,7 +9,7 @@
     "@mui/material": "^6.1.5",
     "notistack": "^3.0.2",
     "pankosmia-lib": "^0.0.3",
-    "pankosmia-rcl": "^0.2.5",
+    "pankosmia-rcl": "0.4.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^7.9.4"
