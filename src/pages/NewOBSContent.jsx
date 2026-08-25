@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import {
   Box,
   DialogContent,
-  Grid2,
+  Grid,
   TextField,
   Tooltip,
   DialogContentText,
@@ -138,12 +138,14 @@ export default function NewOBSContent() {
           )}
         </DialogContentText>
         <DialogContent spacing={2}>
-          <Grid2
+          <Grid
+            sx={{
+              justifyItems: "flex-end",
+              alignItems: "stretch",
+              flexDirection: "column",
+            }}
             container
             spacing={2}
-            justifyItems="flex-end"
-            alignItems="stretch"
-            flexDirection={"column"}
           >
             <TextField
               id="name"
@@ -211,7 +213,7 @@ export default function NewOBSContent() {
               setCurrentLanguage={setCurrentLanguage}
               setIsValid={setLanguageIsValid}
             />
-          </Grid2>
+          </Grid>
         </DialogContent>
         <PanDialogActions
           closeFn={() => handleClose()}
