@@ -11,28 +11,23 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "6.1.5",
-    "@mui/material": "^6.1.5",
-    "interactjs": "^1.10.28",
-    "md5": "^2.3.0",
+    "@mui/material": "^9.3.1",
     "pankosmia-lib": "^0.0.3",
-    "pankosmia-rcl": "0.4.22",
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0",
-    "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.9.4"
+    "pankosmia-rcl": "0.7.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.1",
+    "notistack": "^3.0.2"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@vitejs/plugin-react": "^4.3.4",
     "husky": "^9.1.7",
     "prettier": "3.8.1",
     "vite": "^6.0.7"
   },
   "peerDependencies": {
-    "notistack": "^3.0.2",
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "scripts": {
     "publish": "pnpm run build:package  && cd ./src/components/obsMuncher && npm publish",
