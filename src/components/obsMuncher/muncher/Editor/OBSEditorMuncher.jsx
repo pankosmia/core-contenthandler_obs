@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { DialogContent, DialogContentText, useTheme } from "@mui/material";
@@ -16,9 +16,11 @@ import {
   loadGeneratedAtMap,
   saveGeneratedAt,
 } from "../Editor/EditorTools/lib/audioGeneratedAt";
+import OBSContext from "../context/obsContext";
 
-function OBSEditorMuncher({ metadata, debugRef, obs, setObs, i18nRef }) {
+function OBSEditorMuncher({ metadata, debugRef, i18nRef }) {
   const theme = useTheme();
+  const { obs, setObs } = useContext(OBSContext);
   const [ingredient, setIngredient] = useState([]);
   const [audioUrl, setAudioUrl] = useState("");
   const [checksums, setChecksums] = useState({});
@@ -445,6 +447,8 @@ function OBSEditorMuncher({ metadata, debugRef, obs, setObs, i18nRef }) {
             onChangeNote={handleChange}
             value={currentChapter[obs[1]] || ""}
             mode="write"
+            i18nRef={i18nRef}
+            label={`Paragraph ${obs[1] + 1} (Chapter ${obs[0] + 1})`}
           />
           {audioEnabled && (
             <AudioRecorder

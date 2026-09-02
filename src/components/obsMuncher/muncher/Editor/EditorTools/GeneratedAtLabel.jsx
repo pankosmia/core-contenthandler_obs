@@ -11,7 +11,7 @@ function GeneratedAtLabel({ date, i18nRef, debugRef }) {
   let label;
   if (!hasDate) {
     label = doI18n(
-      "pages:core-local-workspace:audio_never_generated",
+      "pages:core-contenthandler_obs:audio_never_generated",
       i18nRef.current,
       debugRef.current,
     );
@@ -29,7 +29,7 @@ function GeneratedAtLabel({ date, i18nRef, debugRef }) {
 
     if (sameDay) {
       const prefix = doI18n(
-        "pages:core-local-workspace:audio_generated_at",
+        "pages:core-contenthandler_obs:audio_generated_at",
         i18nRef.current,
         debugRef.current,
       );

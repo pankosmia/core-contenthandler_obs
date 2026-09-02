@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Stack } from "@mui/material";
 import Markdown from "react-markdown";
 import RequireResources from "../RequireResources";
 import "../../muncher/OBSMuncher.css";
 import AudioViewer from "../Editor/EditorTools/AudioViewer";
 import { getText } from "pankosmia-lib/http";
+import OBSContext from "../context/obsContext";
 
-function OBSViewerMuncher({ metadata, obs, setObs, debugRef }) {
+function OBSViewerMuncher({ metadata, debugRef }) {
   const [ingredient, setIngredient] = useState("");
+  const { obs, setObs } = useContext(OBSContext);
 
   const getAllData = async () => {
     let fileName = obs[0] <= 9 ? `0${obs[0]}` : obs[0];
@@ -54,8 +56,8 @@ function OBSViewerMuncher({ metadata, obs, setObs, debugRef }) {
   return (
     <RequireResources contentSpec={contentSpec}>
       <Stack sx={{ p: 1 }}>
-        <div>
-          <Markdown className="markdown-content">{ingredient}</Markdown>
+        <div className="markdown-content">
+          <Markdown>{ingredient}</Markdown>
           <AudioViewer
             chapter={obs[0]}
             paragraph={obs[1]}

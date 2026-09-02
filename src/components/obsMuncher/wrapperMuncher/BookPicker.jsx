@@ -49,7 +49,7 @@ function BookPicker({ setFirstChapter, disable = false }) {
       <div>
         <TextField
           disabled={disable}
-          label={`${doI18n("pages:core-local-workspace:book", i18nRef.current)}`}
+          label={`${doI18n("pages:core-contenthandler_obs:book", i18nRef.current)}`}
           fullWidth
           id="book-button"
           size="small"

@@ -9,7 +9,6 @@ import {
   FormControl,
   TextField,
 } from "@mui/material";
-import { i18nContext as I18nContext } from "pankosmia-rcl";
 import { doI18n } from "pankosmia-lib/i18n";
 
 function MarkdownField({
@@ -19,8 +18,8 @@ function MarkdownField({
   currentRowN,
   mode,
   label,
+  i18nRef,
 }) {
-  const { i18nRef } = useContext(I18nContext);
   const [displayMode, setdisplayMode] = useState("write");
 
   return (
@@ -48,11 +47,11 @@ function MarkdownField({
           <TextField
             label={
               doI18n(
-                `pages:core-local-workspace:${label.toLowerCase()}`,
+                `pages:core-contenthandler_obs:${label.toLowerCase()}`,
                 i18nRef.current,
               ) ||
               doI18n(
-                `pages:core-local-workspace:text_paragraph`,
+                `pages:core-contenthandler_obs:text_paragraph`,
                 i18nRef.current,
               )
             }

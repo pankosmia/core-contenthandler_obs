@@ -42,7 +42,7 @@ function OBSEditorTools({
       }
       enqueueSnackbar(
         doI18n(
-          "pages:core-local-workspace:audio_compiled",
+          "pages:core-contenthandler_obs:audio_compiled",
           i18nRef.current,
           debugRef.current,
         ),
@@ -96,7 +96,7 @@ function OBSEditorTools({
           </Box>
           <Tooltip
             title={doI18n(
-              "pages:core-local-workspace:button_generate_audio",
+              "pages:core-contenthandler_obs:button_generate_audio",
               i18nRef.current,
               debugRef.current,
             )}
@@ -156,7 +156,7 @@ function OBSEditorTools({
         >
           <Tooltip
             title={doI18n(
-              "pages:core-local-workspace:button_edit_layout",
+              "pages:core-contenthandler_obs:button_edit_layout",
               i18nRef.current,
               debugRef.current,
             )}

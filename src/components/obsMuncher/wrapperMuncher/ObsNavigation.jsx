@@ -5,17 +5,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { Box, IconButton, Typography } from "@mui/material";
 import { ButtonGroup } from "@mui/material";
 
-function OBSNavigator({ max, title, obs, setObs }) {
-  const getTitle = (title) => {
-    if (!title) {
-      return "";
-    }
-    const regex = /^(\d+)\.\s/;
-    title = title.trim();
-    title = title.replace(regex, "");
-    return title;
-  };
-
+export default function ObsNavigation({ obs, setObs }) {
   return (
     <Box
       sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
@@ -66,7 +56,7 @@ function OBSNavigator({ max, title, obs, setObs }) {
               fontSize: "1rem",
             }}
           >
-            {`${obs[0]}. ${getTitle(title)}`}
+            {`${obs[0]}. Test`}
           </Typography>
           <Typography
             sx={{
@@ -81,13 +71,7 @@ function OBSNavigator({ max, title, obs, setObs }) {
         </Box>
 
         <ButtonGroup>
-          <IconButton
-            disabled={obs[1] >= max}
-            onClick={() =>
-              setObs([obs[0], obs[1] + 1 <= max ? obs[1] + 1 : obs[1]])
-            }
-            // onClick={() => console.log("Next chapter button clicked")}
-          >
+          <IconButton onClick={() => setObs([obs[0], obs[1] + 1])}>
             <KeyboardArrowRightIcon fontSize="medium" />
           </IconButton>
           <IconButton
@@ -101,5 +85,3 @@ function OBSNavigator({ max, title, obs, setObs }) {
     </Box>
   );
 }
-
-export default OBSNavigator;
