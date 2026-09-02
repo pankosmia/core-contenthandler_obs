@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Stack } from "@mui/material";
 import Markdown from "react-markdown";
 import RequireResources from "../RequireResources";
-import "./OBSMuncher.css";
-import AudioViewer from "../../components/obsMuncher/muncher/AudioViewer";
+import "../../muncher/OBSMuncher.css";
+import AudioViewer from "../Editor/EditorTools/AudioViewer";
 import { getText } from "pankosmia-lib/http";
 
 function OBSViewerMuncher({ metadata, obs, setObs, debugRef }) {

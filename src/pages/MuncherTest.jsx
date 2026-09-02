@@ -9,8 +9,8 @@ import { useContext, useState, useEffect } from "react";
 import { getJson } from "pankosmia-lib/http";
 import OBSViewerMuncher from "../components/obsMuncher/muncher/Viewer/OBSViewerMuncher";
 import OBSEditorMuncher from "../components/obsMuncher/muncher/Editor/OBSEditorMuncher";
-import { WrapperNav } from "../components/juxtaMuncher/wrapperMuncher/WrapperNav";
-import OBSContext from "../components/obsMuncher/contexts/obsContext";
+import { WrapperNav } from "../components/obsMuncher/wrapperMuncher/WrapperNav";
+import OBSContext from "../components/obsMuncher/muncher/context/obsContext";
 export function MuncherTest() {
   const { obs, setObs } = useContext(OBSContext);
   const { bcvRef } = useContext(bcvContext);

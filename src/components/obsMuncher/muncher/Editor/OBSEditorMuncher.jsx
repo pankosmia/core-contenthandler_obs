@@ -2,22 +2,22 @@ import { useState, useEffect } from "react";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { DialogContent, DialogContentText, useTheme } from "@mui/material";
-import AudioRecorder from "./components/AudioRecorder";
-import MarkdownField from "../../components/MarkdownField";
-import "./OBSMuncher.css";
+import AudioRecorder from "../Editor/EditorTools/AudioRecorder";
+import MarkdownField from "../../muncher/MarkdownField";
+import "../../muncher/OBSMuncher.css";
 import { PanDialog, PanDialogActions } from "pankosmia-rcl";
 import { debugContext as DebugContext } from "pankosmia-rcl";
 import { getText, postText } from "pankosmia-lib/http";
 import md5 from "md5";
-import OBSEditorTools from "./components/OBSEditorTools";
-import FfmpegDownloadButton from "./components/FfmpegDownloadButton";
-import getFfmpegPath from "../helpers/getFfmpegPath";
+import OBSEditorTools from "../Editor/EditorTools/OBSEditorTools";
+import FfmpegDownloadButton from "../Editor/EditorTools/FfmpegDownloadButton";
+import getFfmpegPath from "../Editor/EditorTools/helpers/getFfmpegPath";
 import {
   loadGeneratedAtMap,
   saveGeneratedAt,
-} from "./components/lib/audioGeneratedAt";
+} from "../Editor/EditorTools/lib/audioGeneratedAt";
 
-function OBSEditorMuncher({ metadata, debugRef, obs, setObs }) {
+function OBSEditorMuncher({ metadata, debugRef, obs, setObs, i18nRef }) {
   const theme = useTheme();
   const [ingredient, setIngredient] = useState([]);
   const [audioUrl, setAudioUrl] = useState("");

@@ -9,6 +9,7 @@ import { MaterialDesignContent, SnackbarProvider } from "notistack";
 import { createTheme, styled } from "@mui/material";
 import { getAndSetJson } from "pankosmia-lib/http";
 import { useEffect, useState } from "react";
+import { MuncherTest } from "./pages/MuncherTest";
 
 const router = createHashRouter([
   {
@@ -18,6 +19,10 @@ const router = createHashRouter([
   {
     path: "/createDocument/obsContent",
     element: <NewOBSContent />,
+  },
+  {
+    path: "/MuncherTest",
+    element: <MuncherTest />,
   },
 ]);
 function AppLayout() {
