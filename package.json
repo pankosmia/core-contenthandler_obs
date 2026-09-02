@@ -1,6 +1,6 @@
 {
   "name": "core-contenthandler_obs",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "homepage": "/clients/core-contenthandler_obs",
   "packageManager": "pnpm@11.20.0",
