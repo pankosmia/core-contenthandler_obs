@@ -1,6 +1,6 @@
 {
   "name": "pankosmia-obs-muncher",
-  "version": "0.2.9",
+  "version": "0.2.1",
   "private": false,
   "homepage": "https://github.com/pankosmia/core-contenthandler_obs",
   "main": "munchersPackageExport/obs-muncher-rcl.umd.js",
@@ -11,11 +11,16 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@hello-pangea/dnd": "^18.0.1",
+    "@mui/icons-material": "6.1.5",
     "@mui/material": "^6.1.5",
+    "interactjs": "^1.10.28",
     "md5": "^2.3.0",
     "pankosmia-lib": "^0.0.3",
-    "pankosmia-rcl": "0.4.0"
+    "pankosmia-rcl": "0.4.22",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -25,9 +30,9 @@
     "vite": "^6.0.7"
   },
   "peerDependencies": {
+    "notistack": "^3.0.2",
     "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0",
-    "react-router-dom": "^6.27.0"
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "scripts": {
     "build": "vite build",
