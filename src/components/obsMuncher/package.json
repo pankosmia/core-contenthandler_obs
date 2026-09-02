@@ -1,13 +1,13 @@
 {
-  "name": "core-contenthandler_obs",
+  "name": "pankosmia-obs-muncher",
   "version": "0.2.1",
-  "private": true,
-  "homepage": "/clients/core-contenthandler_obs",
-  "packageManager": "pnpm@11.20.0",
-  "engines": {
-    "node": ">=24",
-    "pnpm": "11.20.0"
-  },
+  "private": false,
+  "homepage": "https://github.com/pankosmia/core-contenthandler_obs",
+  "main": "munchersPackageExport/obs-muncher-rcl.umd.js",
+  "module": "munchersPackageExport/obs-muncher-rcl.es.js",
+  "files": [
+    "munchersPackageExport"
+  ],
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
@@ -30,7 +30,6 @@
     "react-dom": "^19.2.8"
   },
   "scripts": {
-    "publish": "pnpm run build:package  && cd ./src/components/obsMuncher && npm publish",
     "build": "vite build",
     "build:package": "vite build --mode isMuncher",
     "dev": "vite",

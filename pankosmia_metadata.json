@@ -96,6 +96,38 @@
     "error_data": {
       "en": "Error fetching data",
       "fr": "Erreur lors de la récupération des données"
+    },
+    "text_paragraph": {
+      "en": "Text paragraph",
+      "fr": "Texte du paragraphe"
+    },
+    "audio_never_generated": {
+      "en": "Audio never generated",
+      "fr": "Audio jamais généré"
+    },
+    "audio_compiled": {
+      "en": "Audio generated successfully",
+      "fr": "Audio généré avec succès"
+    },
+    "audio_main_track_empty": {
+      "en": "The main track is empty: add audio to it before generating.",
+      "fr": "La piste principale est vide : ajoutez-y de l'audio avant de générer."
+    },
+    "audio_generated_at": {
+      "en": "Generated at:",
+      "fr": "Généré à :"
+    },
+    "button_generate_audio": {
+      "en": "Generate audio",
+      "fr": "Générer l'audio"
+    },
+    "button_edit_layout": {
+      "en": "Edit layout and resources",
+      "fr": "Editer disposition et choix de ressources"
+    },
+    "book": {
+      "en": "Book",
+      "fr": "Livre"
     }
   }
 }
