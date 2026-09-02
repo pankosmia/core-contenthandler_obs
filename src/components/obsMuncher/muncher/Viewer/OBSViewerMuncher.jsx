@@ -5,11 +5,9 @@ import RequireResources from "../RequireResources";
 import "../../muncher/OBSMuncher.css";
 import AudioViewer from "../Editor/EditorTools/AudioViewer";
 import { getText } from "pankosmia-lib/http";
-import OBSContext from "../context/obsContext";
 
-function OBSViewerMuncher({ metadata, debugRef }) {
+function OBSViewerMuncher({ metadata, debugRef, obs, setObs }) {
   const [ingredient, setIngredient] = useState("");
-  const { obs, setObs } = useContext(OBSContext);
 
   const getAllData = async () => {
     let fileName = obs[0] <= 9 ? `0${obs[0]}` : obs[0];

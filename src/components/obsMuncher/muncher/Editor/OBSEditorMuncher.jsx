@@ -16,11 +16,9 @@ import {
   loadGeneratedAtMap,
   saveGeneratedAt,
 } from "../Editor/EditorTools/lib/audioGeneratedAt";
-import OBSContext from "../context/obsContext";
 
-function OBSEditorMuncher({ metadata, debugRef, i18nRef }) {
+function OBSEditorMuncher({ metadata, debugRef, i18nRef, obs, setObs }) {
   const theme = useTheme();
-  const { obs, setObs } = useContext(OBSContext);
   const [ingredient, setIngredient] = useState([]);
   const [audioUrl, setAudioUrl] = useState("");
   const [checksums, setChecksums] = useState({});
