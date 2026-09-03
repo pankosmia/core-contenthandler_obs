@@ -52,7 +52,7 @@ function OBSViewerMuncher({ metadata, debugRef, obs, setObs, i18nRef }) {
   };
 
   return (
-    <RequireResources contentSpec={contentSpec}>
+    <RequireResources contentSpec={contentSpec} i18nRef={i18nRef}>
       <Stack sx={{ p: 1 }}>
         <div className="markdown-content">
           <Markdown>{ingredient}</Markdown>
