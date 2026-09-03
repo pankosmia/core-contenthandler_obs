@@ -1,6 +1,6 @@
 {
   "name": "core-contenthandler_obs",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "private": true,
   "homepage": "/clients/core-contenthandler_obs",
   "packageManager": "pnpm@11.20.0",
@@ -30,8 +30,9 @@
     "vite": "^6.0.7"
   },
   "peerDependencies": {
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "notistack": "^3.0.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "scripts": {
     "publish": "pnpm run build:package  && cd ./src/components/obsMuncher && npm publish",

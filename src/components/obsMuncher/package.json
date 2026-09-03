@@ -1,6 +1,6 @@
 {
   "name": "pankosmia-obs-muncher",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "private": false,
   "homepage": "https://github.com/pankosmia/core-contenthandler_obs",
   "main": "munchersPackageExport/obs-muncher-rcl.umd.js",
@@ -30,8 +30,10 @@
     "vite": "^6.0.7"
   },
   "peerDependencies": {
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "notistack": "^3.0.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "pankosmia-rcl": "^0.7.1"
   },
   "scripts": {
     "build": "vite build",
