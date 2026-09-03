@@ -27,13 +27,20 @@ export default defineConfig(({ mode }) => {
           sourcemap: true,
 
           rollupOptions: {
-            external: ["react", "react-dom", "react-router-dom", "notistack"],
+            external: [
+              "react",
+              "react-dom",
+              "react-router-dom",
+              "pankosmia-rcl",
+              "notistack",
+            ],
             output: {
               name: "obsMunchersRcl",
               globals: {
                 react: "React",
                 "react-dom": "ReactDOM",
                 "react-router-dom": "ReactRouterDOM",
+                "pankosmia-rcl": "pankosmiaRcl",
                 notistack: "notistack",
               },
             },
