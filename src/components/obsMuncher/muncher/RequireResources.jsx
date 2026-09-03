@@ -1,16 +1,15 @@
 import { getAndSetJson } from "pankosmia-lib/http";
 import { doI18n } from "pankosmia-lib/i18n";
-import { i18nContext } from "pankosmia-rcl";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Stack, Typography } from "@mui/material";
 
 export default function RequireResources({
   contentSpec,
   languages = [],
   children,
+  i18nRef,
 }) {
   const [resources, setResources] = useState([]);
-  const { i18nRef } = useContext(i18nContext);
 
   useEffect(() => {
     getAndSetJson({

@@ -6,7 +6,7 @@ import "../../muncher/OBSMuncher.css";
 import AudioViewer from "../Editor/EditorTools/AudioViewer";
 import { getText } from "pankosmia-lib/http";
 
-function OBSViewerMuncher({ metadata, debugRef, obs, setObs }) {
+function OBSViewerMuncher({ metadata, debugRef, obs, setObs, i18nRef }) {
   const [ingredient, setIngredient] = useState("");
 
   const getAllData = async () => {
@@ -60,6 +60,7 @@ function OBSViewerMuncher({ metadata, debugRef, obs, setObs }) {
             chapter={obs[0]}
             paragraph={obs[1]}
             metadata={metadata}
+            i18nRef={i18nRef}
           />
         </div>
       </Stack>
