@@ -821,7 +821,7 @@ export default function AudioRecorder({
       else if (e.key.toLowerCase() === "r" && !isCmd) {
         e.preventDefault();
         if (isRecording) stopRecording();
-        else record();
+        else if (paths && projectLoaded) record();
       }
     };
     window.addEventListener("keydown", onKey);
@@ -839,6 +839,8 @@ export default function AudioRecorder({
     playerHeadTime,
     zoomBy,
     resetZoom,
+    paths,
+    projectLoaded,
   ]);
 
   // Affiche le GestureIcon à côté du curseur tant que Ctrl/Cmd est maintenu.
@@ -862,7 +864,7 @@ export default function AudioRecorder({
       window.removeEventListener("keyup", onUp);
       window.removeEventListener("blur", onBlur);
     };
-  }, []);
+  }, [projectLoaded]);
 
   useEffect(() => {
     if (!ctrlHeld) return;
@@ -1161,7 +1163,7 @@ export default function AudioRecorder({
                   size="small"
                   onClick={isRecording ? stopRecording : record}
                   color={isRecording ? "error" : "default"}
-                  disabled={!paths}
+                  disabled={!paths || !projectLoaded}
                   sx={{ pr: 0.25 }}
                 >
                   {isRecording ? <StopIcon /> : <MicIcon />}
