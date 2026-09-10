@@ -450,6 +450,7 @@ function OBSEditorMuncher({ metadata, debugRef, i18nRef, obs, setObs }) {
           />
           {audioEnabled && (
             <AudioRecorder
+              key={`${obs[0]}:${obs[1]}`}
               audioUrl={audioUrl}
               setAudioUrl={setAudioUrl}
               metadata={metadata}
