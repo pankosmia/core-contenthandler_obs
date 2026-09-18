@@ -2,13 +2,14 @@ import { useState, useContext, useEffect } from "react";
 import {
   Box,
   DialogContent,
-  Grid2,
+  Grid,
   TextField,
   Tooltip,
   DialogContentText,
 } from "@mui/material";
 import { enqueueSnackbar } from "notistack";
-import { postJson, getAndSetJson, doI18n } from "pithekos-lib";
+import { postJson, getAndSetJson } from "pankosmia-lib/http";
+import { doI18n } from "pankosmia-lib/i18n";
 import { i18nContext, debugContext, Header } from "pankosmia-rcl";
 import { PanDialog, PanDialogActions, PanLanguagePicker } from "pankosmia-rcl";
 import ErrorDialog from "./ErrorDialog";
@@ -137,12 +138,14 @@ export default function NewOBSContent() {
           )}
         </DialogContentText>
         <DialogContent spacing={2}>
-          <Grid2
+          <Grid
+            sx={{
+              justifyItems: "flex-end",
+              alignItems: "stretch",
+              flexDirection: "column",
+            }}
             container
             spacing={2}
-            justifyItems="flex-end"
-            alignItems="stretch"
-            flexDirection={"column"}
           >
             <TextField
               id="name"
@@ -210,7 +213,7 @@ export default function NewOBSContent() {
               setCurrentLanguage={setCurrentLanguage}
               setIsValid={setLanguageIsValid}
             />
-          </Grid2>
+          </Grid>
         </DialogContent>
         <PanDialogActions
           closeFn={() => handleClose()}

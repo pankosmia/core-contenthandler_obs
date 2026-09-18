@@ -1,6 +1,6 @@
 import { useContext, useState, useCallback, useEffect } from "react";
-import { Grid2 } from "@mui/material";
-import { doI18n } from "pithekos-lib";
+import { Grid } from "@mui/material";
+import { doI18n } from "pankosmia-lib/i18n";
 import { i18nContext } from "pankosmia-rcl";
 
 function App() {
@@ -20,16 +20,16 @@ function App() {
   }, [handleWindowResize]);
 
   return (
-    <Grid2 container spacing={2} sx={{ maxHeight: maxWindowHeight }}>
-      <Grid2 size={12}>
+    <Grid container spacing={2} sx={{ maxHeight: maxWindowHeight }}>
+      <Grid size={12}>
         <h1>
           {doI18n(
             "pages:core-contenthandler_obs:stub_content",
             i18nRef.current,
           )}
         </h1>
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
   );
 }
 
