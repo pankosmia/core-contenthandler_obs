@@ -32,8 +32,8 @@ importers:
         specifier: ^0.0.3
         version: 0.0.3
       pankosmia-rcl:
-        specifier: 0.7.1
-        version: 0.7.1(@babel/plugin-syntax-flow@7.29.7(@babel/core@7.29.7(supports-color@7.2.0)))(@babel/plugin-transform-react-jsx@7.29.7(@babel/core@7.29.7(supports-color@7.2.0))(supports-color@7.2.0))(@types/react@19.2.18)(eslint@8.57.1(supports-color@7.2.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(typescript@7.0.2)
+        specifier: 0.7.5
+        version: 0.7.5(42119f563c8c3d0fdf3d52a2d5b8d996)
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -4381,15 +4381,19 @@ packages:
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
 
-  pankosmia-rcl@0.7.1:
+  pankosmia-rcl@0.7.5:
     resolution:
       {
-        integrity: sha512-iwOGyIdVyFmlrpoGJA5l6xaCfqDxsBau6OiSxkqI6R7G/vBpfvJjxRGk6brUZlwbTjy2WkYvQQDo8mC9Wj7qkA==,
+        integrity: sha512-F9kV0INp2KH+tTYXbtCQfnPd4b/40TvnrGUKi8A4zwdJXLm3DA2uUWBDONSxfni5Ozgkf+IrB2ewrLpRlCUPrA==,
       }
     engines: { node: ">=24", pnpm: 11.20.0 }
     peerDependencies:
-      react: ^17.0.0 || ^18.0.0
-      react-dom: ^17.0.0 || ^18.0.0
+      "@emotion/react": ^11.14.0
+      "@emotion/styled": ^11.14.1
+      "@mui/icons-material": ^9.3.1
+      "@mui/material": ^9.3.1
+      react: ^19.2.8
+      react-dom: ^19.2.8
 
   parent-module@1.0.1:
     resolution:
@@ -8384,7 +8388,7 @@ snapshots:
       - supports-color
       - typescript
 
-  pankosmia-rcl@0.7.1(@babel/plugin-syntax-flow@7.29.7(@babel/core@7.29.7(supports-color@7.2.0)))(@babel/plugin-transform-react-jsx@7.29.7(@babel/core@7.29.7(supports-color@7.2.0))(supports-color@7.2.0))(@types/react@19.2.18)(eslint@8.57.1(supports-color@7.2.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(typescript@7.0.2):
+  pankosmia-rcl@0.7.5(42119f563c8c3d0fdf3d52a2d5b8d996):
     dependencies:
       "@emotion/react": 11.14.0(@types/react@19.2.18)(react@19.2.8)(supports-color@7.2.0)
       "@emotion/styled": 11.14.1(@emotion/react@11.14.0(@types/react@19.2.18)(react@19.2.8)(supports-color@7.2.0))(@types/react@19.2.18)(react@19.2.8)(supports-color@7.2.0)
