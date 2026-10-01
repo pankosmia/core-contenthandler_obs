@@ -11,7 +11,12 @@ import { enqueueSnackbar } from "notistack";
 import { postJson, getAndSetJson } from "pankosmia-lib/http";
 import { doI18n } from "pankosmia-lib/i18n";
 import { i18nContext, debugContext, Header } from "pankosmia-rcl";
-import { PanDialog, PanDialogActions, PanLanguagePicker } from "pankosmia-rcl";
+import {
+  PanDialog,
+  PanDialogActions,
+  PanLanguagePicker,
+  PanCopyright,
+} from "pankosmia-rcl";
 import ErrorDialog from "./ErrorDialog";
 
 export default function NewOBSContent() {
@@ -37,7 +42,28 @@ export default function NewOBSContent() {
   const typePageQuery = new URLSearchParams(query[1]);
   const returnType = typePageQuery.get("returnTypePage");
   const regexAbbreviation = /^[A-Za-z0-9][A-Za-z0-9_]{0,6}[A-Za-z0-9]$/;
+  const [copyright, setCopyright] = useState({
+    author_name: "",
+    year: "",
+  });
+  const [optionCopyright, setOptionCopyright] = useState("unspecified");
 
+  function fullCopyright(optionCopyright) {
+    switch (optionCopyright) {
+      case "public-domain":
+        return doI18n(
+          "pages:core-contenthandler_text_translation:public_domain",
+          i18nRef.current,
+        );
+      case "all_rights_reserved":
+        return `${copyright.author_name} ${copyright.year}`;
+      default:
+        return doI18n(
+          "pages:core-contenthandler_text_translation:unspecified_copyright",
+          i18nRef.current,
+        );
+    }
+  }
   useEffect(() => {
     if (open) {
       getAndSetJson({
@@ -71,6 +97,7 @@ export default function NewOBSContent() {
       content_abbr: contentAbbr,
       content_language_code: currentLanguage.language_code,
       //content_language_name: currentLanguage.language_name,
+      copyright: fullCopyright(optionCopyright),
     };
     const response = await postJson(
       "/api/git/new-obs-resource",
@@ -212,6 +239,12 @@ export default function NewOBSContent() {
               currentLanguage={currentLanguage}
               setCurrentLanguage={setCurrentLanguage}
               setIsValid={setLanguageIsValid}
+            />
+            <PanCopyright
+              copyright={copyright}
+              setCopyright={setCopyright}
+              optionCopyright={optionCopyright}
+              setOptionCopyright={setOptionCopyright}
             />
           </Grid>
         </DialogContent>
