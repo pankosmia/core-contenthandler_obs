@@ -15,7 +15,12 @@
           "label": "pages:core-contenthandler_obs:create_content_obs",
           "url": "/createDocument/obsContent"
         }
-      ]
+      ],
+      "edit": {
+        "doc": "main page for workspace",
+        "label": "pages:core-client-workspace:main",
+        "url": "core-local-workspace#"
+      }
     }
   },
   "i18n": {
