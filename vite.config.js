@@ -31,8 +31,11 @@ export default defineConfig(({ mode }) => {
               "react",
               "react-dom",
               "react-router-dom",
-              "pankosmia-rcl",
               "notistack",
+              "pankosmia-rcl",
+
+              /^@mui\//,
+              /^@emotion\//,
             ],
             output: {
               name: "obsMunchersRcl",
@@ -40,8 +43,8 @@ export default defineConfig(({ mode }) => {
                 react: "React",
                 "react-dom": "ReactDOM",
                 "react-router-dom": "ReactRouterDOM",
-                "pankosmia-rcl": "pankosmiaRcl",
                 notistack: "notistack",
+                "pankosmia-rcl": "pankosmiaRcl",
               },
             },
           },

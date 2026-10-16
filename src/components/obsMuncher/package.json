@@ -9,19 +9,10 @@
     "munchersPackageExport"
   ],
   "dependencies": {
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "^9.4.0",
-    "@mui/material": "^9.3.1",
     "interactjs": "^1.10.28",
     "md5": "^2.3.0",
-    "notistack": "^3.0.2",
     "pankosmia-lib": "^0.0.3",
-    "pankosmia-rcl": "0.7.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.18.1"
+    "react-markdown": "^10.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
@@ -30,10 +21,15 @@
     "vite": "^6.0.7"
   },
   "peerDependencies": {
-    "notistack": "^3.0.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "pankosmia-rcl": "^0.7.1"
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/icons-material": "9.3.1",
+    "@mui/material": "9.3.1",
+    "notistack": "3.0.2",
+    "pankosmia-rcl": "0.8.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-router-dom": "7.9.4"
   },
   "scripts": {
     "build": "vite build",
