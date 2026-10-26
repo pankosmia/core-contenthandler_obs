@@ -422,7 +422,6 @@ function OBSEditorMuncher({ metadata, debugRef, i18nRef, obs, setObs }) {
         titleLabel="FFmpeg not installed"
         isOpen={ffmpegModalOpen}
         closeFn={() => setFfmpegModalOpen(false)}
-        theme={theme}
         size="sm"
       >
         <DialogContent>
