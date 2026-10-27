@@ -3,7 +3,6 @@ import { SpaContainer } from "pankosmia-rcl";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import NewOBSContent from "./pages/NewOBSContent";
-import App from "./App";
 import { MaterialDesignContent, SnackbarProvider } from "notistack";
 import { styled } from "@mui/material";
 import { useState } from "react";
@@ -12,15 +11,11 @@ import OBSContext from "../src/components/obsMuncher/muncher/context/obsContext"
 const router = createHashRouter([
   {
     path: "/",
-    element: <App />,
+    element: <MuncherTest />,
   },
   {
     path: "/createDocument/obsContent",
     element: <NewOBSContent />,
-  },
-  {
-    path: "/MuncherTest",
-    element: <MuncherTest />,
   },
 ]);
 function AppLayout() {

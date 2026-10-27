@@ -16,6 +16,7 @@ import {
   loadGeneratedAtMap,
   saveGeneratedAt,
 } from "../Editor/EditorTools/lib/audioGeneratedAt";
+import { doI18n } from "pankosmia-lib/i18n";
 
 function OBSEditorMuncher({ metadata, debugRef, i18nRef, obs, setObs }) {
   const theme = useTheme();
@@ -445,7 +446,7 @@ function OBSEditorMuncher({ metadata, debugRef, i18nRef, obs, setObs }) {
             value={currentChapter[obs[1]] || ""}
             mode="write"
             i18nRef={i18nRef}
-            label={`Paragraph ${obs[1] + 1} (Chapter ${obs[0] + 1})`}
+            label={`${doI18n("pages:core-contenthandler_obs:paragraph_label", i18nRef.current)} ${obs[1] + 1} (${doI18n("pages:core-contenthandler_obs:chapter_label", i18nRef.current)} ${obs[0] + 1})`}
           />
           {audioEnabled && (
             <AudioRecorder
