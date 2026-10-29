@@ -46,10 +46,7 @@ function MarkdownField({
         <FormControl fullWidth margin="normal">
           <TextField
             label={
-              doI18n(
-                `pages:core-contenthandler_obs:${label.toLowerCase()}`,
-                i18nRef.current,
-              ) ||
+              label ||
               doI18n(
                 `pages:core-contenthandler_obs:text_paragraph`,
                 i18nRef.current,

@@ -29,11 +29,8 @@ importers:
         specifier: 3.0.2
         version: 3.0.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       pankosmia-lib:
-        specifier: ^0.0.3
-        version: 0.0.3
-      pankosmia-rcl:
-        specifier: 0.8.0
-        version: 0.8.0(1bfbbf07b38d15b3d4887a0aa062241b)
+        specifier: ^0.0.5
+        version: 0.0.5
       react:
         specifier: 19.2.8
         version: 19.2.8
@@ -53,6 +50,9 @@ importers:
       husky:
         specifier: ^9.1.7
         version: 9.1.7
+      pankosmia-rcl:
+        specifier: 0.8.5
+        version: 0.8.5(1bfbbf07b38d15b3d4887a0aa062241b)
       prettier:
         specifier: 3.8.1
         version: 3.8.1
@@ -4273,10 +4273,17 @@ packages:
         integrity: sha512-aOANGTQvag5anAadz7Jn52wQYhJiDlEDPT6pRBXzEf9JecKyvW1sQL82wTFdeRU8PRJghIl1oMW9AhFBocPr9g==,
       }
 
-  pankosmia-rcl@0.8.0:
+  pankosmia-lib@0.0.5:
     resolution:
       {
-        integrity: sha512-9hTVlBkecwX69O5Vf7KawcCtkNurYxRbltun9+7rECnJaoeonKkKYpH+9kNLtUtZvLTh+jPb8R5mVlY1NrK8cA==,
+        integrity: sha512-1CU5spmmdG/63JTWcuKs08d+4Nv+VciEy9YwUPoK8SI2QvFKkZXgUF2aCP5udk1hGWsFo+9yZgluAuRJUnimoQ==,
+      }
+    engines: { node: ">=24", pnpm: 11.20.0 }
+
+  pankosmia-rcl@0.8.5:
+    resolution:
+      {
+        integrity: sha512-sm8+TTdCm3y49cTvc0e/hULsEL6gQ8TDQ+C99OWK+eeTih2VvzFDwBjgtF5extPZa7gUs6QnDf+JlHG6X1WSeQ==,
       }
     engines: { node: ">=24", pnpm: 11.20.0 }
     peerDependencies:
@@ -8192,7 +8199,9 @@ snapshots:
 
   pankosmia-lib@0.0.3: {}
 
-  pankosmia-rcl@0.8.0(1bfbbf07b38d15b3d4887a0aa062241b):
+  pankosmia-lib@0.0.5: {}
+
+  pankosmia-rcl@0.8.5(1bfbbf07b38d15b3d4887a0aa062241b):
     dependencies:
       "@emotion/cache": 11.14.0
       "@emotion/react": 11.14.0(@types/react@19.2.18)(react@19.2.8)(supports-color@7.2.0)
