@@ -6,6 +6,7 @@
     "debug": true
   },
   "endpoints": {
+    "x-obsimages": {},
     "textStories": {
       "create_document": [
         {
