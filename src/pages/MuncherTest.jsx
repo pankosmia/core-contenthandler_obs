@@ -5,14 +5,18 @@ import {
   debugContext,
   i18nContext,
   Header,
+  AdvancedAppBar,
 } from "pankosmia-rcl";
 import { useContext, useState, useEffect } from "react";
 import { getJson } from "pankosmia-lib/http";
+import { doI18n } from "pankosmia-lib/i18n";
+import { enqueueSnackbar } from "notistack";
 import OBSViewerMuncher from "../components/obsMuncher/muncher/Viewer/OBSViewerMuncher";
 import OBSEditorMuncher from "../components/obsMuncher/muncher/Editor/OBSEditorMuncher";
 import { WrapperNav } from "../components/obsMuncher/wrapperMuncher/WrapperNav";
 import { Padding } from "@mui/icons-material";
 import OBSContext from "../components/obsMuncher/muncher/context/obsContext";
+import ObsNavigation from "../components/obsMuncher/wrapperMuncher/ObsNavigation";
 
 export function MuncherTest() {
   const { obs, setObs } = useContext(OBSContext);
@@ -66,6 +70,9 @@ export function MuncherTest() {
           requireNet={false}
         />
       </Box>
+      <AdvancedAppBar
+        navigation={metadata && <ObsNavigation obs={obs} setObs={setObs} />}
+      />
       <Box sx={{ paddingLeft: 2, paddingTop: 10, flexShrink: 0 }}>
         <WrapperNav flavor={"textStories"} obs={obs} setObs={setObs} />
       </Box>
@@ -99,6 +106,7 @@ export function MuncherTest() {
               i18nRef={i18nRef}
               obs={obs}
               setObs={setObs}
+              navigationEnable={false}
             />
           </Box>
         )}

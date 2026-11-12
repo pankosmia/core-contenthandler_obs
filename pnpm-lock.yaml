@@ -51,8 +51,8 @@ importers:
         specifier: ^9.1.7
         version: 9.1.7
       pankosmia-rcl:
-        specifier: 0.8.5
-        version: 0.8.5(1bfbbf07b38d15b3d4887a0aa062241b)
+        specifier: 0.8.8
+        version: 0.8.8(1bfbbf07b38d15b3d4887a0aa062241b)
       prettier:
         specifier: 3.8.1
         version: 3.8.1
@@ -4267,12 +4267,6 @@ packages:
       }
     engines: { node: ">=10" }
 
-  pankosmia-lib@0.0.3:
-    resolution:
-      {
-        integrity: sha512-aOANGTQvag5anAadz7Jn52wQYhJiDlEDPT6pRBXzEf9JecKyvW1sQL82wTFdeRU8PRJghIl1oMW9AhFBocPr9g==,
-      }
-
   pankosmia-lib@0.0.5:
     resolution:
       {
@@ -4280,10 +4274,10 @@ packages:
       }
     engines: { node: ">=24", pnpm: 11.20.0 }
 
-  pankosmia-rcl@0.8.5:
+  pankosmia-rcl@0.8.8:
     resolution:
       {
-        integrity: sha512-sm8+TTdCm3y49cTvc0e/hULsEL6gQ8TDQ+C99OWK+eeTih2VvzFDwBjgtF5extPZa7gUs6QnDf+JlHG6X1WSeQ==,
+        integrity: sha512-t01btNOdFKRj9uw/nix/cQQ7/bx87xDnoQiPzroNzdkb68j7BPc7HyU8bvbHPyv350TTudVesp8K0XPUBUoNYA==,
       }
     engines: { node: ">=24", pnpm: 11.20.0 }
     peerDependencies:
@@ -4458,6 +4452,16 @@ packages:
       }
     engines: { node: ">=0.10.0" }
 
+  react-router-dom@7.18.5:
+    resolution:
+      {
+        integrity: sha512-9HcfDMU6JJ/fp6gJZYGwNE6RknVGS4kBjH1HkNw959mCJi70TVwdipQWv2FEol9uGpi+SZTFtVpJPtEQfayeOw==,
+      }
+    engines: { node: ">=20.0.0" }
+    peerDependencies:
+      react: ">=18"
+      react-dom: ">=18"
+
   react-router-dom@7.9.4:
     resolution:
       {
@@ -4467,6 +4471,19 @@ packages:
     peerDependencies:
       react: ">=18"
       react-dom: ">=18"
+
+  react-router@7.18.5:
+    resolution:
+      {
+        integrity: sha512-dTgvcXDOrLPrlLHrcZAqWveiK1hMSqN+rGAJzegP8HtmNkfRxOoshGWBNX3ZJ0cZjOHkRdlUJtaIhZMLLyGyPw==,
+      }
+    engines: { node: ">=20.0.0" }
+    peerDependencies:
+      react: ">=18"
+      react-dom: ">=18"
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
 
   react-router@7.9.4:
     resolution:
@@ -8197,11 +8214,9 @@ snapshots:
     dependencies:
       p-limit: 3.1.0
 
-  pankosmia-lib@0.0.3: {}
-
   pankosmia-lib@0.0.5: {}
 
-  pankosmia-rcl@0.8.5(1bfbbf07b38d15b3d4887a0aa062241b):
+  pankosmia-rcl@0.8.8(1bfbbf07b38d15b3d4887a0aa062241b):
     dependencies:
       "@emotion/cache": 11.14.0
       "@emotion/react": 11.14.0(@types/react@19.2.18)(react@19.2.8)(supports-color@7.2.0)
@@ -8214,10 +8229,11 @@ snapshots:
       deep-copy: 1.4.2
       eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.29.7(@babel/core@7.29.7(supports-color@7.2.0)))(@babel/plugin-transform-react-jsx@7.29.7(@babel/core@7.29.7(supports-color@7.2.0))(supports-color@7.2.0))(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@7.0.2)
       notistack: 3.0.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      pankosmia-lib: 0.0.3
+      pankosmia-lib: 0.0.5
       prop-types: 15.8.1
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
+      react-router-dom: 7.18.5(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       stylis: 4.4.0
       stylis-plugin-rtl: 2.1.1(stylis@4.4.0)
     transitivePeerDependencies:
@@ -8321,11 +8337,25 @@ snapshots:
 
   react-refresh@0.17.0: {}
 
+  react-router-dom@7.18.5(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
+    dependencies:
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      react-router: 7.18.5(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+
   react-router-dom@7.9.4(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
       react-router: 7.9.4(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+
+  react-router@7.18.5(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
+    dependencies:
+      cookie: 1.1.1
+      react: 19.2.8
+      set-cookie-parser: 2.7.2
+    optionalDependencies:
+      react-dom: 19.2.8(react@19.2.8)
 
   react-router@7.9.4(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
