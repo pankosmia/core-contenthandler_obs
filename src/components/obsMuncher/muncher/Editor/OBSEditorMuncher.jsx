@@ -18,14 +18,7 @@ import {
 } from "../Editor/EditorTools/lib/audioGeneratedAt";
 import { doI18n } from "pankosmia-lib/i18n";
 
-function OBSEditorMuncher({
-  metadata,
-  debugRef,
-  i18nRef,
-  obs,
-  setObs,
-  navigationEnable = true,
-}) {
+function OBSEditorMuncher({ metadata, debugRef, i18nRef, obs, setObs }) {
   const theme = useTheme();
   const [ingredient, setIngredient] = useState([]);
   const [audioUrl, setAudioUrl] = useState("");
@@ -406,29 +399,26 @@ function OBSEditorMuncher({
 
   return (
     <>
-      {navigationEnable && (
-        <OBSEditorTools
-          obs={obs}
-          setObs={setObs}
-          isModified={isModified}
-          handleSaveOBS={handleSaveOBS}
-          audioEnabled={audioEnabled}
-          setAudioEnabled={setAudioEnabled}
-          currentChapter={currentChapter}
-          chapterTitle={chapterTitle}
-          handleExportVideoParagraph={handleExportVideoParagraph}
-          isExportingParaEnabled={isExportingParaEnabled}
-          handleExportVideoStory={handleExportVideoStory}
-          isMenuOpen={isMenuOpen}
-          menuAnchorEl={menuAnchorEl}
-          setMenuAnchorEl={setMenuAnchorEl}
-          compileAudio={compileAudio}
-          generatedAt={generatedAtMap[audioSegmentKey]}
-          i18nRef={i18nRef}
-          debugRef={debugRef}
-        />
-      )}
-
+      <OBSEditorTools
+        obs={obs}
+        setObs={setObs}
+        isModified={isModified}
+        handleSaveOBS={handleSaveOBS}
+        audioEnabled={audioEnabled}
+        setAudioEnabled={setAudioEnabled}
+        currentChapter={currentChapter}
+        chapterTitle={chapterTitle}
+        handleExportVideoParagraph={handleExportVideoParagraph}
+        isExportingParaEnabled={isExportingParaEnabled}
+        handleExportVideoStory={handleExportVideoStory}
+        isMenuOpen={isMenuOpen}
+        menuAnchorEl={menuAnchorEl}
+        setMenuAnchorEl={setMenuAnchorEl}
+        compileAudio={compileAudio}
+        generatedAt={generatedAtMap[audioSegmentKey]}
+        i18nRef={i18nRef}
+        debugRef={debugRef}
+      />
       <PanDialog
         titleLabel="FFmpeg not installed"
         isOpen={ffmpegModalOpen}

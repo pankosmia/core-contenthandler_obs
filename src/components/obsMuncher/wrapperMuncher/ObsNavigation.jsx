@@ -8,12 +8,7 @@ import { ButtonGroup } from "@mui/material";
 export default function ObsNavigation({ obs, setObs }) {
   return (
     <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        backgroundColor: "white",
-      }}
+      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <Box
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}

@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Tooltip from "@mui/material/Tooltip";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import LayoutIcon from "../layouts/LayoutIcon";
-import OBSNavigator from "../../Navigation/OBSNavigator";
+import OBSNavigator from "./OBSNavigator";
 import SaveOBSButton from "./SaveOBSButton";
 import { Grid, IconButton, Menu, MenuItem } from "@mui/material";
 import { doI18n } from "pankosmia-lib/i18n";

@@ -1,6 +1,6 @@
 {
   "name": "pankosmia-obs-muncher",
-  "version": "0.2.9",
+  "version": "0.2.8",
   "private": false,
   "homepage": "https://github.com/pankosmia/core-contenthandler_obs",
   "main": "munchersPackageExport/obs-muncher-rcl.umd.js",
@@ -26,7 +26,7 @@
     "@mui/icons-material": "9.3.1",
     "@mui/material": "9.3.1",
     "notistack": "3.0.2",
-    "pankosmia-rcl": "0.8.8",
+    "pankosmia-rcl": "0.8.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-router-dom": "7.9.4"
